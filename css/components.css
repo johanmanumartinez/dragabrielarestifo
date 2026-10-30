@@ -196,12 +196,13 @@
 #site-header {
   position: fixed;
   top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   z-index: 100;
   transition: top .3s ease;
-  width: fit-content;
-  max-width: calc(100vw - 32px);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
 }
 .header-pill {
   display: flex;
@@ -210,6 +211,7 @@
   padding: 10px 18px;
   border-radius: var(--r-pill);
   white-space: nowrap;
+  pointer-events: all;
 }
 .header-logo {
   width: 26px; height: 26px;
