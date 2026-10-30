@@ -261,22 +261,7 @@
   gap: 0;
   position: relative;
 }
-.process-line {
-  position: absolute;
-  left: 17px;
-  top: 18px;
-  bottom: 18px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--dorado-luz), var(--dorado-som));
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 1.6s ease;
-}
-@media (min-width: 768px) {
-  .process-line { left: 50%; transform: translateX(-50%) scaleY(0); }
-  .process-line.drawn { transform: translateX(-50%) scaleY(1); }
-}
-.process-line.drawn { transform: scaleY(1); }
+.process-line { display: none; }
 
 .process-step {
   display: flex;

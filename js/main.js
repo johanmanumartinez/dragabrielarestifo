@@ -92,13 +92,26 @@ function initDock() {
   const dock = document.getElementById('dock');
   if (!dock) return;
   let lastY = 0;
+  let showTimer = null;
+
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    dock.classList.toggle('hidden', y > lastY && y > 120);
+    const nearBottom = (window.innerHeight + y) >= document.body.scrollHeight - 120;
+
+    if (nearBottom) {
+      dock.classList.add('hidden');
+    } else if (y > lastY && y > 120) {
+      // Scrolleando hacia abajo → esconder
+      dock.classList.add('hidden');
+      clearTimeout(showTimer);
+    } else if (y < lastY) {
+      // Scrolleando hacia arriba → mostrar con pequeño delay
+      clearTimeout(showTimer);
+      showTimer = setTimeout(() => dock.classList.remove('hidden'), 150);
+    }
     lastY = y;
   }, { passive: true });
 
-  // Links externos
   dock.querySelector('[data-wa]')?.addEventListener('click', () => track('whatsapp_clic'));
   dock.querySelector('[data-ig]')?.addEventListener('click', () => track('instagram_clic'));
 }
