@@ -96,18 +96,18 @@ function initDock() {
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    const nearBottom = (window.innerHeight + y) >= document.body.scrollHeight - 120;
+    const nearBottom = (window.innerHeight + y) >= document.body.scrollHeight - 100;
+    clearTimeout(showTimer);
 
     if (nearBottom) {
       dock.classList.add('hidden');
     } else if (y > lastY && y > 120) {
-      // Scrolleando hacia abajo → esconder
+      // Scrolleando hacia abajo → esconder, pero reaparece solo en 1.5s
       dock.classList.add('hidden');
-      clearTimeout(showTimer);
-    } else if (y < lastY) {
-      // Scrolleando hacia arriba → mostrar con pequeño delay
-      clearTimeout(showTimer);
-      showTimer = setTimeout(() => dock.classList.remove('hidden'), 150);
+      showTimer = setTimeout(() => dock.classList.remove('hidden'), 1500);
+    } else {
+      // Scrolleando hacia arriba → mostrar de inmediato
+      dock.classList.remove('hidden');
     }
     lastY = y;
   }, { passive: true });
