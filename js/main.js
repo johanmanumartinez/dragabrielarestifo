@@ -48,7 +48,7 @@ function initReveal() {
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
-// ─── VIDEOS EN PANTALLA ───────────────────────────────────────────────────────
+// ─── VIDEOS EN PANTALLA (treat-panel-videos) ──────────────────────────────────
 function initVideos() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -61,6 +61,21 @@ function initVideos() {
     v.muted = true;
     obs.observe(v);
   });
+}
+
+// ─── HERO B-ROLL ──────────────────────────────────────────────────────────────
+function initHeroBroll() {
+  const vids = [...document.querySelectorAll('.hero-vid')];
+  if (!vids.length) return;
+  let cur = 0;
+  vids[0].play().catch(() => {});
+  setInterval(() => {
+    vids[cur].classList.remove('active');
+    vids[cur].pause();
+    cur = (cur + 1) % vids.length;
+    vids[cur].classList.add('active');
+    vids[cur].play().catch(() => {});
+  }, 5000);
 }
 
 // ─── HEADER SCROLL ────────────────────────────────────────────────────────────
@@ -98,15 +113,30 @@ function initProcess() {
   obs.observe(line.parentElement);
 }
 
-// ─── ABOUT VIDEO ──────────────────────────────────────────────────────────────
-function initAboutVideo() {
-  const v = document.getElementById('about-video');
-  if (!v) return;
+// ─── ABOUT B-ROLL ─────────────────────────────────────────────────────────────
+function initAboutBroll() {
+  const wrap = document.querySelector('.about-media');
+  const vids = [...document.querySelectorAll('.about-vid')];
+  if (!vids.length || !wrap) return;
+  let cur = 0;
+  let timer = null;
+
   const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) v.play().catch(() => {});
-    else v.pause();
+    if (entries[0].isIntersecting) {
+      vids[cur].play().catch(() => {});
+      timer = setInterval(() => {
+        vids[cur].classList.remove('active');
+        vids[cur].pause();
+        cur = (cur + 1) % vids.length;
+        vids[cur].classList.add('active');
+        vids[cur].play().catch(() => {});
+      }, 6000);
+    } else {
+      vids.forEach(v => v.pause());
+      clearInterval(timer);
+    }
   }, { threshold: 0.2 });
-  obs.observe(v);
+  obs.observe(wrap);
 }
 
 // ─── TRACKING EXTERNO ─────────────────────────────────────────────────────────
@@ -137,7 +167,8 @@ async function init() {
   initBooking();
   initCarousel();
   initProcess();
-  initAboutVideo();
+  initAboutBroll();
+  initHeroBroll();
   initTracking();
   initLenis();
 }

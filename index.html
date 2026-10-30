@@ -71,12 +71,27 @@
 
 <!-- ═══════════════════════════════════════════════════════ HERO -->
 <section id="hero" aria-labelledby="hero-title">
-  <div class="video-wrap">
-    <video id="hero-video" data-autoplay muted loop playsinline preload="none"
+  <div class="video-wrap" id="hero-broll">
+    <video class="hero-vid active" muted loop playsinline preload="none"
       poster="assets/posters/hero-desktop.jpg" aria-hidden="true">
       <source src="assets/videos/hero-desktop.mp4" type="video/mp4">
     </video>
-    <!-- Mobile override via CSS if needed -->
+    <video class="hero-vid" muted loop playsinline preload="none"
+      poster="assets/posters/inyectables.jpg" aria-hidden="true">
+      <source src="assets/videos/inyectables.mp4" type="video/mp4">
+    </video>
+    <video class="hero-vid" muted loop playsinline preload="none"
+      poster="assets/posters/facial.jpg" aria-hidden="true">
+      <source src="assets/videos/facial.mp4" type="video/mp4">
+    </video>
+    <video class="hero-vid" muted loop playsinline preload="none"
+      poster="assets/posters/bioestimulacion.jpg" aria-hidden="true">
+      <source src="assets/videos/bioestimulacion.mp4" type="video/mp4">
+    </video>
+    <video class="hero-vid" muted loop playsinline preload="none"
+      poster="assets/posters/ambient.jpg" aria-hidden="true">
+      <source src="assets/videos/ambient.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="scrim"></div>
 
@@ -106,7 +121,6 @@
       <p class="hero-trust reveal">
         <span>· Evaluación médica personalizada</span>
         <span>· Insumos ANMAT y FDA</span>
-        <span>· Seña descontable el día de la cita</span>
       </p>
     </div>
 
@@ -187,7 +201,7 @@
               <h3 class="treat-card-title">Inyectables faciales</h3>
             </div>
             <div class="treat-card-body">
-              <p class="treat-card-desc">Toxina botulínica, ácido hialurónico, rinomodelación y Baby Botox.</p>
+              <p class="treat-card-desc">Toxina botulínica, ácido hialurónico, rinomodelación y Baby Botox. Cada unidad calculada con criterio anatómico para modular la expresión sin bloquearla — preservando tu identidad en cada movimiento.</p>
               <div class="treat-vinetas">
                 <p class="vineta">Expresión conservada</p>
                 <p class="vineta">Resultado natural</p>
@@ -204,7 +218,7 @@
               <h3 class="treat-card-title">Bioestimulación</h3>
             </div>
             <div class="treat-card-body">
-              <p class="treat-card-desc">Estimula tu propio colágeno para densificar y redefinir la piel.</p>
+              <p class="treat-card-desc">Estimula tu propio colágeno para densificar y redefinir la piel. A diferencia del relleno, trabaja desde adentro mejorando textura, luminosidad y firmeza de forma progresiva y completamente natural.</p>
               <div class="treat-vinetas">
                 <p class="vineta">Calidad de piel</p>
                 <p class="vineta">Efecto progresivo</p>
@@ -221,7 +235,7 @@
               <h3 class="treat-card-title">Corporal</h3>
             </div>
             <div class="treat-card-body">
-              <p class="treat-card-desc">Radiofrecuencia para reducir medidas y compactar el tejido.</p>
+              <p class="treat-card-desc">Radiofrecuencia para reducir medidas y compactar el tejido. El calor controlado activa la lipólisis y estimula las fibras de colágeno dérmico, logrando una piel más tensa con resultados acumulativos y sin tiempo de recuperación.</p>
               <div class="treat-vinetas">
                 <p class="vineta">4 a 8 sesiones</p>
                 <p class="vineta">Lipólisis activada</p>
@@ -238,7 +252,7 @@
               <h3 class="treat-card-title">Restauración capilar</h3>
             </div>
             <div class="treat-card-body">
-              <p class="treat-card-desc">Implante FUE manual, con diseño de línea natural.</p>
+              <p class="treat-card-desc">Implante FUE manual con diseño de línea de nacimiento natural. Se extraen e implantan folículos uno a uno bajo anestesia local, sin cortes ni cicatrices visibles, con resultado definitivo y de por vida.</p>
               <div class="treat-vinetas">
                 <p class="vineta">Folículos individuales</p>
                 <p class="vineta">Anestesia local</p>
@@ -322,10 +336,15 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-media reveal">
-        <video id="about-video" muted loop playsinline preload="none"
+        <video class="about-vid active" muted loop playsinline preload="none"
           poster="assets/posters/about-dra.jpg"
-          aria-label="Video de la Dra. Gabriela Restifo">
+          aria-label="Dra. Gabriela Restifo con paciente">
           <source src="assets/videos/about-dra.mp4" type="video/mp4">
+        </video>
+        <video class="about-vid" muted loop playsinline preload="none"
+          poster="assets/posters/facial.jpg"
+          aria-label="Procedimiento estético">
+          <source src="assets/videos/facial.mp4" type="video/mp4">
         </video>
         <div class="about-media-scrim"></div>
       </div>
@@ -396,13 +415,6 @@
           <p class="faq-ans">Crecimiento visible desde el mes 4 y resultado definitivo al mes 12.</p>
         </details>
 
-        <details class="faq-item reveal">
-          <summary>
-            <span class="q">¿Cómo funciona la seña?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </summary>
-          <p class="faq-ans">Resguarda tu turno y se descuenta del total el día de la cita. Cancelación o reprogramación con 48 horas hábiles de aviso.</p>
-        </details>
 
       </div>
     </div>
@@ -462,7 +474,7 @@
       </div>
       <!-- Calendario -->
       <div class="reveal">
-        <div class="booking-embed"></div>
+        <div class="booking-embed" id="booking-calendar"></div>
       </div>
     </div>
   </div>

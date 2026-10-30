@@ -6,16 +6,14 @@ const ORBES = {
 };
 
 export function initCarousel() {
-  const cards  = document.querySelectorAll('.treat-card');
+  const cards  = [...document.querySelectorAll('.treat-card')];
   const videos = document.querySelectorAll('.treat-panel-video');
   const dots   = document.querySelectorAll('.treat-dot');
   const orbe   = document.querySelector('.treatments-orbe');
   let active   = 0;
-  let timer    = null;
 
   function activate(idx) {
     active = idx;
-
     cards.forEach((c, i) => c.classList.toggle('active', i === idx));
     dots.forEach((d, i)  => d.classList.toggle('active', i === idx));
 
@@ -32,13 +30,24 @@ export function initCarousel() {
 
     const num = cards[idx]?.dataset.num;
     if (orbe && num) orbe.style.background = ORBES[num] || '';
-
-    clearInterval(timer);
-    timer = setInterval(() => activate((active + 1) % cards.length), 6000);
   }
 
+  // Click/tap siempre disponible
   cards.forEach((c, i) => c.addEventListener('click', () => activate(i)));
   dots.forEach((d, i)  => d.addEventListener('click', () => activate(i)));
+
+  // Scroll-driven en mobile: se activa al entrar en viewport
+  const scrollObs = new IntersectionObserver(entries => {
+    if (window.innerWidth >= 900) return;
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = cards.indexOf(e.target);
+        if (idx !== -1) activate(idx);
+      }
+    });
+  }, { threshold: 0.55 });
+
+  cards.forEach(c => scrollObs.observe(c));
 
   if (cards.length) activate(0);
 }

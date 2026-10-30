@@ -53,7 +53,7 @@ export function initBooking() {
       track('reservar_clic', { desde: btn.dataset.desde || 'desconocido' });
       const isMobile = window.innerWidth < 768;
       if (isMobile) {
-        document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('booking-calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         openPanel();
       }

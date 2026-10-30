@@ -17,7 +17,7 @@
   --grad-oro: linear-gradient(135deg, var(--dorado-luz) 0%, var(--dorado) 50%, var(--dorado-som) 100%);
 
   /* Vidrio */
-  --glass-bg:     rgba(11,9,7,0.45);
+  --glass-bg:     rgba(11,9,7,0.68);
   --glass-border: rgba(212,160,23,0.18);
   --glass-b-bg:   rgba(11,9,7,0.72);
 
