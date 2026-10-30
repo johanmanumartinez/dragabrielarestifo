@@ -7,39 +7,43 @@ const ORBES = {
 
 export function initCarousel() {
   const cards  = [...document.querySelectorAll('.treat-card')];
-  const videos = document.querySelectorAll('.treat-panel-video');
-  const dots   = document.querySelectorAll('.treat-dot');
+  const videos = [...document.querySelectorAll('.treat-panel-video')];
+  const dots   = [...document.querySelectorAll('.treat-dot')];
   const orbe   = document.querySelector('.treatments-orbe');
-  let active   = 0;
-  let timer    = null;
+  const tag    = document.getElementById('active-tag');
+  let activeCard = 0;
+  let curVid     = 0;
+  let cardTimer  = null;
+  let vidTimer   = null;
 
-  function activate(idx) {
-    active = idx;
-    cards.forEach((c, i) => c.classList.toggle('active', i === idx));
-    dots.forEach((d, i)  => d.classList.toggle('active', i === idx));
-
-    videos.forEach((v, i) => {
-      if (i === idx) {
-        v.style.opacity = '1';
-        v.play?.().catch(() => {});
-      } else {
-        v.style.opacity = '0';
-        v.pause?.();
-        v.currentTime = 0;
-      }
-    });
-
-    const num = cards[idx]?.dataset.num;
-    if (orbe && num) orbe.style.background = ORBES[num] || '';
-
-    // Reinicia el timer desde esta card
-    clearInterval(timer);
-    timer = setInterval(() => activate((active + 1) % cards.length), 5000);
+  // ── B-roll de videos (ciclo independiente) ──────────────────────────────────
+  function nextVideo() {
+    videos[curVid].style.opacity = '0';
+    videos[curVid].pause?.();
+    curVid = (curVid + 1) % videos.length;
+    videos[curVid].style.opacity = '1';
+    videos[curVid].play?.().catch(() => {});
+    if (tag) tag.textContent = videos[curVid].dataset.label || '';
   }
 
-  // Click abre esa card y reinicia el timer desde ahí
-  cards.forEach((c, i) => c.addEventListener('click', () => activate(i)));
-  dots.forEach((d, i)  => d.addEventListener('click', () => activate(i)));
+  if (videos.length) {
+    videos[0].play?.().catch(() => {});
+    vidTimer = setInterval(nextVideo, 4500);
+  }
 
-  if (cards.length) activate(0);
+  // ── Cards con timer (ciclo automático) ─────────────────────────────────────
+  function activateCard(idx) {
+    activeCard = idx;
+    cards.forEach((c, i) => c.classList.toggle('active', i === idx));
+    dots.forEach((d, i)  => d.classList.toggle('active', i === idx));
+    const num = cards[idx]?.dataset.num;
+    if (orbe && num) orbe.style.background = ORBES[num] || '';
+    clearInterval(cardTimer);
+    cardTimer = setInterval(() => activateCard((activeCard + 1) % cards.length), 5000);
+  }
+
+  cards.forEach((c, i) => c.addEventListener('click', () => activateCard(i)));
+  dots.forEach((d, i)  => d.addEventListener('click', () => activateCard(i)));
+
+  if (cards.length) activateCard(0);
 }
