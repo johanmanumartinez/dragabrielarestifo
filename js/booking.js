@@ -51,11 +51,16 @@ export function initBooking() {
     btn.addEventListener('click', e => {
       e.preventDefault();
       track('reservar_clic', { desde: btn.dataset.desde || 'desconocido' });
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        document.getElementById('booking-calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const target = btn.dataset.target || 'booking';
+      if (target === 'hero') {
+        document.getElementById('hero-booking')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        openPanel();
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+          document.getElementById('booking-calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          openPanel();
+        }
       }
     });
   });

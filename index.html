@@ -108,8 +108,8 @@
       </p>
 
       <div class="hero-ctas reveal">
-        <button class="btn-cta btn-breathe" data-reservar data-desde="hero">
-          Reservar cita
+        <button class="btn-cta btn-breathe" data-reservar data-desde="hero" data-target="hero">
+          Reservar mi cita
         </button>
         <a href="#tratamientos" class="btn-text">Ver tratamientos ↓</a>
       </div>
@@ -122,7 +122,7 @@
 
     <!-- Columna derecha: calendario -->
     <div class="reveal">
-      <div class="booking-embed"></div>
+      <div class="booking-embed" id="hero-booking"></div>
     </div>
   </div>
 </section>
@@ -206,7 +206,7 @@
                 <p class="vineta">Resultado natural</p>
                 <p class="vineta">Hialurónico reversible</p>
               </div>
-              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-01">Reservar este tratamiento</button>
+              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-01" data-target="hero">Reservar este tratamiento</button>
             </div>
           </div>
 
@@ -223,7 +223,7 @@
                 <p class="vineta">Efecto progresivo</p>
                 <p class="vineta">No agrega volumen</p>
               </div>
-              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-02">Reservar este tratamiento</button>
+              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-02" data-target="hero">Reservar este tratamiento</button>
             </div>
           </div>
 
@@ -240,7 +240,7 @@
                 <p class="vineta">Lipólisis activada</p>
                 <p class="vineta">Sin reposo</p>
               </div>
-              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-03">Reservar este tratamiento</button>
+              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-03" data-target="hero">Reservar este tratamiento</button>
             </div>
           </div>
 
@@ -257,7 +257,7 @@
                 <p class="vineta">Anestesia local</p>
                 <p class="vineta">Sin internación</p>
               </div>
-              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-04">Reservar este tratamiento</button>
+              <button class="btn-cta treat-cta" data-reservar data-desde="tratamientos-04" data-target="hero">Reservar este tratamiento</button>
             </div>
           </div>
 
@@ -325,7 +325,7 @@
     </div>
 
     <div class="process-cta reveal">
-      <button class="btn-cta" data-reservar data-desde="proceso">Reservar cita</button>
+      <button class="btn-cta" data-reservar data-desde="proceso">Reservar mi cita</button>
     </div>
   </div>
 </section>
@@ -365,7 +365,7 @@
           diagnóstico propio.
         </p>
         <p class="about-firma reveal">Dra. Gabriela Restifo</p>
-        <button class="btn-cta reveal" data-reservar data-desde="about">Reservar cita</button>
+        <button class="btn-cta reveal" data-reservar data-desde="about">Reservar mi cita</button>
       </div>
     </div>
   </div>
@@ -431,7 +431,7 @@
 <!-- ═══════════════════════════════════════════════════════ RESERVA -->
 <section id="booking-section" class="surface-dark" aria-labelledby="booking-title">
   <div class="container">
-    <span class="eyebrow reveal" style="color:var(--dorado)">Reservar cita</span>
+    <span class="eyebrow reveal" style="color:var(--dorado)">Reservar mi cita</span>
     <h2 id="booking-title" class="reveal">
       Tu <em>evaluación</em> empieza acá.
     </h2>
@@ -512,7 +512,7 @@
   <div class="dock-capsule glass">
     <div class="dock-mono">GR</div>
     <div class="dock-sep"></div>
-    <button class="btn-cta btn-breathe" data-reservar data-desde="dock">Reservar cita</button>
+    <button class="btn-cta btn-breathe" data-reservar data-desde="dock">Reservar mi cita</button>
     <div class="dock-sep"></div>
     <a href="https://wa.me/5491171442718?text=Hola%20Dra.%20Gabriela%2C%20quisiera%20consultar%20por%20una%20evaluaci%C3%B3n."
       target="_blank" rel="noopener" class="dock-icon" aria-label="WhatsApp" data-wa data-track="whatsapp_clic">
@@ -533,7 +533,7 @@
 
   <!-- Mobile: barra -->
   <div class="dock-bar glass" style="background:rgba(11,9,7,.88);border-top:1px solid rgba(212,160,23,.12)">
-    <button class="btn-cta btn-breathe" style="flex:1" data-reservar data-desde="dock-mobile">Reservar cita</button>
+    <button class="btn-cta btn-breathe" style="flex:1" data-reservar data-desde="dock-mobile">Reservar mi cita</button>
     <a href="https://wa.me/5491171442718?text=Hola%20Dra.%20Gabriela%2C%20quisiera%20consultar%20por%20una%20evaluaci%C3%B3n."
       target="_blank" rel="noopener" class="dock-icon" aria-label="WhatsApp" data-track="whatsapp_clic">
       <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
@@ -553,11 +553,11 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ BOOKING PANEL -->
-<div id="booking-panel" role="dialog" aria-modal="true" aria-label="Reservar cita">
+<div id="booking-panel" role="dialog" aria-modal="true" aria-label="Reservar mi cita">
   <div class="backdrop"></div>
   <div class="panel-inner">
     <div class="panel-header">
-      <p class="eyebrow" style="color:var(--dorado)">Reservar cita</p>
+      <p class="eyebrow" style="color:var(--dorado)">Reservar mi cita</p>
       <button class="panel-close" aria-label="Cerrar panel">✕</button>
     </div>
     <div class="booking-embed"></div>
