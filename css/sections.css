@@ -12,11 +12,11 @@
   transition: opacity .5s ease, transform .5s ease;
 }
 #apertura.out { opacity: 0; transform: scale(1.06); pointer-events: none; }
-#apertura svg { width: 88px; height: 88px; }
+#apertura svg { width: 130px; height: 130px; }
 #apertura p {
   font-family: var(--f-jose);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: rgba(243,235,221,.4);
