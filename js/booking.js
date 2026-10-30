@@ -54,6 +54,13 @@ export function initBooking() {
       const target = btn.dataset.target || 'booking';
       if (target === 'hero') {
         document.getElementById('hero-booking')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (target === 'nearest') {
+        const midPage = document.body.scrollHeight / 2;
+        if (window.scrollY < midPage) {
+          document.getElementById('hero-booking')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          document.getElementById('booking-calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       } else {
         const isMobile = window.innerWidth < 768;
         if (isMobile) {
