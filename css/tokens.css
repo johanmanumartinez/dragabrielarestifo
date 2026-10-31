@@ -6,27 +6,25 @@
   --texto-dark:  #1A140D;
   --body-dark:   #524D45;
   --bronce:      #6B4A2B;
-  --dorado-luz:  #E8C44A;
-  --dorado:      #B8860B;
-  --dorado-som:  #7A5208;
+  --dorado-luz:  #F0D060;
+  --dorado:      #C8920A;
+  --dorado-som:  #7A4E02;
   --nude:        #C9A18A;
   --ambar:       #9A5B14;
   --champagne:   #E8D5A8;
 
-  /* Gradiente dorado metálico con brillo especular */
-  --grad-oro: linear-gradient(105deg,
-    #7A5208 0%,
-    #B8860B 22%,
-    #E8C44A 40%,
-    #FFF0B0 50%,
-    #E8C44A 60%,
-    #B8860B 78%,
-    #7A5208 100%
+  /* Gradiente dorado lingote — luz vertical desde arriba, sin blancos */
+  --grad-oro: linear-gradient(180deg,
+    #F0D060 0%,
+    #C8920A 14%,
+    #8B5E05 44%,
+    #B07A08 68%,
+    #7A4E02 100%
   );
 
   /* Vidrio */
   --glass-bg:     rgba(11,9,7,0.68);
-  --glass-border: rgba(184,134,11,0.22);
+  --glass-border: rgba(200,146,10,0.24);
   --glass-b-bg:   rgba(11,9,7,0.72);
 
   /* Tipografía */
