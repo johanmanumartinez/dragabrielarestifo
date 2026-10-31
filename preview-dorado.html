@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparación Dorado — GR</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Prata&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0B0907;
+  font-family: 'Josefin Sans', system-ui, sans-serif;
+  color: #F3EBDD;
+  padding: 48px 24px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(243,235,221,.4);
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.col-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(243,235,221,.35);
+  margin-bottom: 28px;
+}
+
+.demo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── VERSIÓN A: ACTUAL (lingote oscuro) ─── */
+
+--grad-a: linear-gradient(180deg,
+  #F0D060 0%,
+  #C8920A 14%,
+  #8B5E05 44%,
+  #B07A08 68%,
+  #7A4E02 100%
+);
+
+.btn-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background: linear-gradient(180deg, #F0D060 0%, #C8920A 14%, #8B5E05 44%, #B07A08 68%, #7A4E02 100%);
+  color: #1A140D;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: default;
+  box-shadow:
+    inset 0  1px 0 rgba(240,208,80,0.55),
+    inset 0 -1px 0 rgba(60,30,0,0.55),
+    0 4px 14px rgba(122,78,2,0.45),
+    0 1px 3px rgba(0,0,0,0.35);
+}
+
+.num-a {
+  font-family: 'Prata', serif;
+  font-size: 72px;
+  line-height: 1;
+  background: linear-gradient(180deg, #F0D060 0%, #C8920A 14%, #8B5E05 44%, #B07A08 68%, #7A4E02 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.8)) drop-shadow(0 3px 8px rgba(0,0,0,0.5));
+}
+
+.tag-a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border-radius: 100px;
+  border: 1px solid rgba(200,146,10,.3);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C8920A;
+  background: rgba(11,9,7,.3);
+}
+
+.line-a {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8920A, transparent);
+}
+
+.text-a {
+  font-family: 'Prata', serif;
+  font-size: 32px;
+  font-style: italic;
+  background: linear-gradient(180deg, #F0D060 0%, #C8920A 14%, #8B5E05 44%, #B07A08 68%, #7A4E02 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.8)) drop-shadow(0 3px 8px rgba(0,0,0,0.5));
+}
+
+/* ─── VERSIÓN B: PROPUESTA (highlights claros, blanquecinos) ─── */
+
+.btn-b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background: linear-gradient(180deg,
+    #FFFAE8 0%,
+    #F2D458 6%,
+    #C8920A 22%,
+    #8B5E05 52%,
+    #B07A08 72%,
+    #7A4E02 100%
+  );
+  color: #1A140D;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: default;
+  box-shadow:
+    inset 0  1px 0 rgba(255,250,220,0.85),
+    inset 0 -1px 0 rgba(60,30,0,0.6),
+    0 4px 16px rgba(122,78,2,0.5),
+    0 1px 3px rgba(0,0,0,0.4);
+}
+
+.num-b {
+  font-family: 'Prata', serif;
+  font-size: 72px;
+  line-height: 1;
+  background: linear-gradient(180deg,
+    #FFFAE8 0%,
+    #F2D458 6%,
+    #C8920A 22%,
+    #8B5E05 52%,
+    #B07A08 72%,
+    #7A4E02 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.8)) drop-shadow(0 3px 10px rgba(0,0,0,0.55));
+}
+
+.tag-b {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border-radius: 100px;
+  border: 1px solid rgba(200,146,10,.3);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C8920A;
+  background: rgba(11,9,7,.3);
+  /* borde superior más claro */
+  box-shadow: inset 0 1px 0 rgba(255,250,200,0.2);
+}
+
+.line-b {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #F2D458, transparent);
+}
+
+.text-b {
+  font-family: 'Prata', serif;
+  font-size: 32px;
+  font-style: italic;
+  background: linear-gradient(180deg,
+    #FFFAE8 0%,
+    #F2D458 6%,
+    #C8920A 22%,
+    #8B5E05 52%,
+    #B07A08 72%,
+    #7A4E02 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.8)) drop-shadow(0 3px 10px rgba(0,0,0,0.55));
+}
+
+.divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: rgba(243,235,221,.07);
+}
+
+.section-title {
+  grid-column: 1 / -1;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(243,235,221,.2);
+  text-align: center;
+  margin-top: 8px;
+}
+</style>
+</head>
+<body>
+
+<h1>Comparación Dorado — Dra. Gabriela Restifo</h1>
+
+<div class="grid">
+
+  <div class="col-label">A — Actual (lingote oscuro)</div>
+  <div class="col-label">B — Propuesta (highlights claros)</div>
+
+  <!-- Botón CTA -->
+  <div class="section-title">Botón CTA</div>
+
+  <div class="demo-block">
+    <button class="btn-a">Reservar mi cita</button>
+  </div>
+  <div class="demo-block">
+    <button class="btn-b">Reservar mi cita</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Números trust -->
+  <div class="section-title">Números destacados (+10, FAQ, etc.)</div>
+
+  <div class="demo-block">
+    <div class="num-a">10+</div>
+  </div>
+  <div class="demo-block">
+    <div class="num-b">10+</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Tag / badge -->
+  <div class="section-title">Badge / Etiqueta</div>
+
+  <div class="demo-block">
+    <div class="tag-a">Medicina Estética</div>
+  </div>
+  <div class="demo-block">
+    <div class="tag-b">Medicina Estética</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Línea separadora -->
+  <div class="section-title">Línea separadora</div>
+
+  <div class="demo-block">
+    <div class="line-a"></div>
+  </div>
+  <div class="demo-block">
+    <div class="line-b"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Texto en itálica (criterio médico, etc.) -->
+  <div class="section-title">Texto destacado</div>
+
+  <div class="demo-block">
+    <div class="text-a">criterio médico</div>
+  </div>
+  <div class="demo-block">
+    <div class="text-b">criterio médico</div>
+  </div>
+
+</div>
+
+</body>
+</html>
