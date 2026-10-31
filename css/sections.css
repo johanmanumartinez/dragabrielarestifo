@@ -12,18 +12,17 @@
   transition: opacity .5s ease, transform .5s ease;
 }
 #apertura.out { opacity: 0; transform: scale(1.06); pointer-events: none; }
-#apertura svg { width: 130px; height: 130px; }
-#apertura p {
-  font-family: var(--f-jose);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: rgba(243,235,221,.4);
+#apertura img {
+  width: 420px;
+  max-width: 82vw;
   opacity: 0;
-  transition: opacity .5s ease .6s;
+  animation: ap-logo-in 1s ease forwards;
 }
-#apertura.text-in p { opacity: 1; }
+@keyframes ap-logo-in {
+  0%   { opacity: 0; transform: scale(0.9);  filter: drop-shadow(0 0  0px rgba(212,160,23,0)); }
+  55%  { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 45px rgba(212,160,23,0.55)); }
+  100% { opacity: 1; transform: scale(1);    filter: drop-shadow(0 0 22px rgba(212,160,23,0.3)); }
+}
 
 /* ─── HERO ────────────────────────────────────────────────────────────────── */
 #hero {
