@@ -60,6 +60,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.7)) drop-shadow(0 2px 6px rgba(0,0,0,0.45));
 }
 .hero-sub {
   font-size: clamp(16px, 2vw, 18px);
@@ -101,6 +102,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 12px;
+  filter: drop-shadow(0 1px 0 rgba(60,30,0,0.8)) drop-shadow(0 3px 8px rgba(0,0,0,0.5));
 }
 .trust-label {
   font-weight: 600;
